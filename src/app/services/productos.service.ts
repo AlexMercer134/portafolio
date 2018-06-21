@@ -8,9 +8,15 @@ export class ProductosService {
 
   productos:any[] = [];
   cargando:boolean = true;
+  cod:string=undefined;
 
   constructor(private http:Http) { 
     this.cargar_productos();
+  }
+
+  public cargar_producto(cod:string){
+    
+    return this.http.get(`https://paginaweb-a02d0.firebaseio.com/productos/${cod}.json`);
   }
 
   public cargar_productos()
